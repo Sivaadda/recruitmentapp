@@ -1,0 +1,22 @@
+
+.review-box {
+    background-color: rgb(254, 247, 240);
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    height: 410px;
+    
+  }
+  
+  .review-box h4 {
+    margin-bottom: 5px;
+  }
+  
+  .review-box p {
+    font-size: 14px;
+  }
+ img{
+    border-radius: 15px;
+ }
+  
