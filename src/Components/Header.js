@@ -1,38 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoo from './logoo.png'
+import logoo from './logoo.png';
 
 const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const handleNavToggle = () => {
+    setIsNavOpen(prevState => !prevState);
+  };
+
   return (
     <header className="header">
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div className="container">
-        <Link to="/">
-          <img
-            src={logoo}
-            width="200"
-            height="60"
-            
-            className="d-inline-block align-top"
-          />
-          {/* Replace "your-logo.png" with the path to your logo image */}
-          
-        </Link>
-
-        <div className='d-flex flex-row justify-content-end'>
+          <Link to="/">
+            <img
+              src={logoo}
+              width="200"
+              height="60"
+              alt="Your Logo"
+              className="d-inline-block align-top"
+            />
+          </Link>
 
           <button
-            className="navbar-toggler"
+            className={`navbar-toggler ${isNavOpen ? 'collapsed' : ''}`}
             type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
+            onClick={handleNavToggle}
             aria-controls="navbarNav"
-            aria-expanded="false"
+            aria-expanded={isNavOpen ? 'true' : 'false'}
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+         
+          <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`}>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link className="nav-link" to="/">
@@ -57,7 +59,7 @@ const Header = () => {
             </ul>
           </div>
           </div>
-        </div>
+        
       </nav>
     </header>
   );
